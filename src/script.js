@@ -24,3 +24,15 @@ function addTask() {
         </div>
     `;
 }
+
+document.addEventListener('animationstart', function (e) {
+    if (e.animationName === 'themes-fade-in') {
+        e.target.classList.add('did-fade-in');
+    }
+});
+
+document.addEventListener('animationend', function (e) {
+    if (e.animationName === 'themes-fade-out') {
+        e.target.classList.remove('did-fade-in');
+    }
+});

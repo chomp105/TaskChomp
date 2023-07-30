@@ -1,6 +1,7 @@
 :root {
     --base-color: #debac0; /* tea rose (red) */
     --text-color: #2f323a; /* gunmetal */
+    --theme-menu-color: #633865; /* gunmetal */
     --header-color: #77567a; /* chinese violet */
     --manager-color: #77567a; /* chinese violet */
     --manager-color-dark: #6d4c70;
@@ -23,7 +24,8 @@ body {
 header {
     background-color: var(--header-color);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     font-size: 1.5em;
 }
 
@@ -84,4 +86,61 @@ header {
 
 .option:hover {
     background-color: var(--task-color-darker);
+}
+
+.theme {
+    width: 30px;
+    height: 30px;
+    background-color: var(--manager-color-dark);
+    border: 3px solid black;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.theme .theme-menu  {
+    display: none;
+    background-color: var(--theme-menu-color);
+    border-radius: 10px;
+    justify-content: space-evenly;
+    height: fit-content;
+    position: relative;
+    top: 27px;
+    z-index: 2;
+}
+
+.theme:hover .theme-menu {
+    display: flex;
+    animation: themes-fade-in 0.5s;
+}
+
+.theme:not(:hover) .theme-menu.did-fade-in {
+    display: flex;
+    animation: themes-fade-out 0.2s;
+}
+
+.theme-option {
+    background-color: var(--base-color);
+    border-radius: 20px;
+    margin: 20px 50px 20px 50px;
+    padding: 10px;
+}
+
+@keyframes themes-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes themes-fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
